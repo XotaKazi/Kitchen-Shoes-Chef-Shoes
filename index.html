@@ -12,7 +12,7 @@
 <meta property="og:type" content="product">
 <meta property="og:title" content="Stride — Non-Slip Chef Shoes for Kitchen Professionals">
 <meta property="og:description" content="Comfort that works as hard as you do. Premium non-slip chef shoes designed for long kitchen shifts.">
-<meta property="og:image" content="https://xotakazi.github.io/Kitchen-Shoes-Chef-Shoes/assets/images/stride-black-studio.jpg">
+<meta property="og:image" content="https://xotakazi.github.io/Kitchen-Shoes-Chef-Shoes/stride-black-studio.jpg">
 <meta property="og:url" content="https://xotakazi.github.io/Kitchen-Shoes-Chef-Shoes/">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -238,7 +238,7 @@
       <div class="gallery reveal">
         <div class="gallery-main" id="galleryMain">
           <!-- Main media: defaults to the Kitchen Black studio shot. -->
-          <img id="mainMedia" src="assets/images/stride-black-studio.jpg" alt="Stride Classic chef shoe, Kitchen Black" style="width:100%;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 10px 30px rgba(20,20,15,0.12);">
+          <img id="mainMedia" src="stride-black-studio.jpg" alt="Stride Classic chef shoe, Kitchen Black" style="width:100%;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 10px 30px rgba(20,20,15,0.12);">
         </div>
         <div class="gallery-thumbs" id="galleryThumbs" style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
           <!-- Thumb 1: Kitchen Black studio shot -->
@@ -290,9 +290,9 @@
         <div class="option-block">
           <div class="option-label"><span>Color</span></div>
           <div class="color-grid" id="colorGrid">
-            <button class="color-swatch selected" data-color="Kitchen Black" data-image="assets/images/stride-black-studio.jpg" aria-label="Kitchen Black"><span class="core" style="background:#14140F"></span></button>
-            <button class="color-swatch" data-color="Creamy" data-image="assets/images/stride-creamy.jpg" aria-label="Creamy"><span class="core" style="background:#EFE7D2"></span></button>
-            <button class="color-swatch" data-color="Dark Creamy" data-image="assets/images/stride-dark-creamy.jpg" aria-label="Dark Creamy"><span class="core" style="background:#B9A473"></span></button>
+            <button class="color-swatch selected" data-color="Kitchen Black" data-image="stride-black-studio.jpg" aria-label="Kitchen Black"><span class="core" style="background:#14140F"></span></button>
+            <button class="color-swatch" data-color="Creamy" data-image="stride-creamy.jpg" aria-label="Creamy"><span class="core" style="background:#EFE7D2"></span></button>
+            <button class="color-swatch" data-color="Dark Creamy" data-image="stride-dark-creamy.jpg" aria-label="Dark Creamy"><span class="core" style="background:#B9A473"></span></button>
           </div>
         </div>
 
@@ -317,15 +317,8 @@
             Docs: https://developer.paypal.com/docs/checkout/buttons/
           -->
           <div class="paypal-slot" id="paypalSlot">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypalForm">
-              <input type="hidden" name="cmd" value="_xclick">
-              <input type="hidden" name="business" value="soyamchhetri5@gmail.com">
-              <input type="hidden" name="item_name" value="Stride Classic Chef Shoe">
-              <input type="hidden" name="amount" value="49.00">
-              <input type="hidden" name="currency_code" value="USD">
-              <input type="hidden" name="quantity" id="paypalQty" value="1">
-              <button type="submit" class="btn btn-primary" style="width:100%;">Buy Now — PayPal</button>
-            </form>
+            <div id="paypal-button-container"></div>
+            <p id="result-message" style="font-family:var(--font-mono, monospace);font-size:13px;color:var(--steel, #8B8B85);margin-top:10px;"></p>
           </div>
           <button class="btn btn-ghost" id="addCartBtn" type="button">Add to Cart</button>
         </div>
@@ -458,6 +451,9 @@
 
 <div class="toast" id="toast"></div>
 
+<!-- PayPal Smart Buttons SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AVUs_hV6RtO4l06izuDLjjqATDeuKQBNJkqkCNc_JTQ9iHW12S8fysXOrVd30vQXYcQobMXqNKUIsMX4&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card" data-sdk-integration-source="developer-studio"></script>
+<script src="app.js"></script>
 <script src="script.js"></script>
 
 <!-- Small gallery switcher to swap main media between images and video thumbnails -->
