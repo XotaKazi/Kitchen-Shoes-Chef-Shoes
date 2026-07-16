@@ -625,11 +625,19 @@
       },
       onApprove: function (data, actions) {
         return actions.order.capture().then(function (details) {
-          var name = (details.payer && details.payer.name && details.payer.name.given_name) || 'there';
-          document.getElementById('cart-result-message').textContent = 'Thanks, ' + name + '! Your order is confirmed.';
-          cart = [];
-          saveCart();
-          renderCart();
+          if (details.status === 'COMPLETED') {
+            var name = (details.payer && details.payer.name && details.payer.name.given_name) || 'there';
+            document.getElementById('cart-result-message').textContent = 'Thanks, ' + name + '! Your order is confirmed.';
+            cart = [];
+            saveCart();
+            renderCart();
+          } else {
+            document.getElementById('cart-result-message').textContent = 'Your payment did not go through (status: ' + details.status + '). Please try again or use a different payment method — you have not been charged.';
+            console.warn('PayPal capture did not complete:', details);
+          }
+        }).catch(function (err) {
+          document.getElementById('cart-result-message').textContent = 'Something went wrong processing your payment. Please try again — you have not been charged.';
+          console.error('Cart PayPal capture error:', err);
         });
       },
       onCancel: function () {
