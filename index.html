@@ -26,8 +26,8 @@
   "brand": { "@type": "Brand", "name": "Stride" },
   "offers": {
     "@type": "Offer",
-    "priceCurrency": "USD",
-    "price": "49.00",
+    "priceCurrency": "AUD",
+    "price": "44.00",
     "availability": "https://schema.org/InStock"
   },
   "aggregateRating": {
@@ -102,7 +102,7 @@
       <img src="stride-black-lifestyle.jpg" alt="Stride chef shoe, side view" class="shoe-hero">
       <div class="price-tag">
         <div class="label">Stride Classic</div>
-        <div class="amount">$49</div>
+        <div class="amount">$44 AUD</div>
       </div>
     </div>
   </div>
@@ -114,12 +114,12 @@
     <span>NON-SLIP CERTIFIED</span>
     <span>WATER-RESISTANT UPPER</span>
     <span><strong>4.8★</strong> FROM 312 KITCHENS</span>
-    <span>FREE SHIPPING OVER $75</span>
+    <span>FREE SHIPPING</span>
     <span>60-DAY GUARANTEE</span>
     <span>NON-SLIP CERTIFIED</span>
     <span>WATER-RESISTANT UPPER</span>
     <span><strong>4.8★</strong> FROM 312 KITCHENS</span>
-    <span>FREE SHIPPING OVER $75</span>
+    <span>FREE SHIPPING</span>
     <span>60-DAY GUARANTEE</span>
   </div>
 </div>
@@ -276,9 +276,9 @@
         <h2>The Everyday Kitchen Shoe</h2>
         <div class="stars">★★★★★<span>4.8 out of 5 · 312 reviews</span></div>
         <div class="price-row">
-          <span class="now">$49.00</span>
-          <span class="was">$119.00</span>
-          <span class="save">SAVE 59%</span>
+          <span class="now">$44.00 AUD</span>
+          <span class="was">$119.00 AUD</span>
+          <span class="save">SAVE 63%</span>
         </div>
 
         <div class="option-block">
@@ -326,7 +326,7 @@
 
         <div class="trust-row">
           <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/></svg> Secure checkout</span>
-          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l-4-4m4 4-4 4"/></svg> Free shipping over $75</span>
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l-4-4m4 4-4 4"/></svg> Free shipping</span>
           <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> 60-day guarantee</span>
         </div>
       </div>
@@ -382,7 +382,7 @@
     <div class="faq-list">
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">Shipping — how fast will my shoes arrive?<span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Orders ship within 48 hours from our warehouse. Standard shipping takes 3–6 business days; expedited options are available at checkout. Orders over $75 qualify for free shipping.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Orders ship within 48 hours from our warehouse. Standard shipping takes 3–6 business days; expedited options are available at checkout. Shipping is free on every order — it's already included in the price.</div></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">Returns — what if they don't fit right?<span class="plus">+</span></button>
@@ -405,7 +405,7 @@
   <div class="wrap">
     <h2>Your Feet Work a Full Shift.<br>Give Them Shoes That Do Too.</h2>
     <p>Join 312+ kitchen professionals who've made the switch to Stride.</p>
-    <a href="#shop" class="btn btn-primary">Shop the Stride Classic — $49</a>
+    <a href="#shop" class="btn btn-primary">Shop the Stride Classic — $44 AUD</a>
   </div>
 </section>
 
@@ -466,7 +466,7 @@
 <div class="toast" id="toast"></div>
 
 <!-- PayPal Smart Buttons SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=AVUs_hV6RtO4l06izuDLjjqATDeuKQBNJkqkCNc_JTQ9iHW12S8fysXOrVd30vQXYcQobMXqNKUIsMX4&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card" data-sdk-integration-source="developer-studio"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AVUs_hV6RtO4l06izuDLjjqATDeuKQBNJkqkCNc_JTQ9iHW12S8fysXOrVd30vQXYcQobMXqNKUIsMX4&buyer-country=AU&currency=AUD&components=buttons&enable-funding=venmo,paylater,card" data-sdk-integration-source="developer-studio"></script>
 <script src="app.js"></script>
 <script src="script.js"></script>
 
@@ -550,7 +550,7 @@
   var cartFooterEl = document.getElementById('cartFooter');
   var cartSubtotalEl = document.getElementById('cartSubtotal');
   var addCartBtn = document.getElementById('addCartBtn');
-  var UNIT_PRICE = 49.00;
+  var UNIT_PRICE = 44.00;
   var paypalCartRendered = false;
 
   function saveCart() {
@@ -619,7 +619,7 @@
         return actions.order.create({
           purchase_units: [{
             description: 'Stride Classic Chef Shoe — ' + description,
-            amount: { value: currentSubtotal.toFixed(2), currency_code: 'USD' }
+            amount: { value: currentSubtotal.toFixed(2), currency_code: 'AUD' }
           }]
         });
       },

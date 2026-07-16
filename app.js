@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var container = document.getElementById('paypal-button-container');
   if (!container || typeof paypal === 'undefined') return;
 
-  var UNIT_PRICE = 49.00; // keep this in sync with the price shown on the page
+  var UNIT_PRICE = 44.00; // keep this in sync with the price shown on the page
 
   function getOrderDetails() {
     var sizeBtn = document.querySelector('#sizeGrid .selected');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
           description: 'Stride Classic Chef Shoe — Size ' + order.size + ', ' + order.color + ' x' + order.qty,
           amount: {
             value: total,
-            currency_code: 'USD'
+            currency_code: 'AUD'
           }
         }]
       });
