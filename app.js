@@ -36,14 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     onApprove: function (data, actions) {
       return actions.order.capture().then(function (details) {
-        var resultEl = document.getElementById('result-message');
         if (details.status === 'COMPLETED') {
-          var name = (details.payer && details.payer.name && details.payer.name.given_name) || 'there';
-          if (resultEl) {
-            resultEl.textContent = 'Thanks, ' + name + '! Your order is confirmed.';
-            resultEl.style.color = 'var(--flame, #FF5A1F)';
-          }
+          var order = getOrderDetails();
+          var total = (UNIT_PRICE * order.qty).toFixed(2);
+          var params = new URLSearchParams({
+            order_id: details.id,
+            items: 'Size ' + order.size + ' ' + order.color + ' x' + order.qty,
+            total: total
+          });
+          window.location.href = 'order-confirmed.html?' + params.toString();
         } else {
+          var resultEl = document.getElementById('result-message');
           if (resultEl) {
             resultEl.textContent = 'Your payment did not go through (status: ' + details.status + '). Please try again or use a different payment method — you have not been charged.';
             resultEl.style.color = '#c0392b';

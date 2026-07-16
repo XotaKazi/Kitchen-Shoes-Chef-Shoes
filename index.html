@@ -626,11 +626,18 @@
       onApprove: function (data, actions) {
         return actions.order.capture().then(function (details) {
           if (details.status === 'COMPLETED') {
-            var name = (details.payer && details.payer.name && details.payer.name.given_name) || 'there';
-            document.getElementById('cart-result-message').textContent = 'Thanks, ' + name + '! Your order is confirmed.';
+            var itemsSummary = cart.map(function (it) {
+              return 'Size ' + it.size + ' ' + it.color + ' x' + it.qty;
+            }).join(', ');
+            var total = cart.reduce(function (s, it) { return s + it.qty * UNIT_PRICE; }, 0).toFixed(2);
             cart = [];
             saveCart();
-            renderCart();
+            var params = new URLSearchParams({
+              order_id: details.id,
+              items: itemsSummary,
+              total: total
+            });
+            window.location.href = 'order-confirmed.html?' + params.toString();
           } else {
             document.getElementById('cart-result-message').textContent = 'Your payment did not go through (status: ' + details.status + '). Please try again or use a different payment method — you have not been charged.';
             console.warn('PayPal capture did not complete:', details);

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed — Stride Chef Shoes</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .confirm-main { padding: 100px 0 96px; min-height: 70vh; }
+  .confirm-main .wrap { max-width: 620px; text-align: center; }
+  .confirm-icon { width: 64px; height: 64px; margin: 0 auto 24px; border-radius: 50%; background: var(--flame); display: flex; align-items: center; justify-content: center; }
+  .confirm-main h1 { font-size: clamp(28px,4vw,40px); margin-bottom: 14px; }
+  .confirm-sub { color: var(--ink-soft); font-size: 16px; line-height: 1.6; margin-bottom: 36px; }
+  .confirm-card { background: var(--paper-dim); border: 1px solid var(--line); border-radius: 10px; padding: 26px 28px; text-align: left; margin-bottom: 32px; }
+  .confirm-row { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; font-size: 14px; }
+  .confirm-row + .confirm-row { border-top: 1px solid var(--line); }
+  .confirm-row .label { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--steel); }
+  .confirm-row .value { font-weight: 600; text-align: right; }
+  .confirm-note { font-family: var(--font-mono); font-size: 13px; color: var(--steel); line-height: 1.6; margin-bottom: 32px; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--flame); }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-logo">STRIDE<span class="dot">.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#shop">Shop</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="confirm-main">
+  <div class="wrap">
+    <div class="confirm-icon">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <h1>Yes! Your order is confirmed.</h1>
+    <p class="confirm-sub">Thanks for shopping with Stride. You'll shortly receive a payment receipt by email, and we'll begin getting your order ready to ship within 48 hours.</p>
+
+    <div class="confirm-card" id="orderCard">
+      <div class="confirm-row"><span class="label">Order ID</span><span class="value" id="ocOrderId">—</span></div>
+      <div class="confirm-row"><span class="label">Item(s)</span><span class="value" id="ocItems">—</span></div>
+      <div class="confirm-row"><span class="label">Total Paid</span><span class="value" id="ocTotal">—</span></div>
+    </div>
+
+    <p class="confirm-note">Questions about your order? Email us any time at <a href="mailto:soyamchhetri5@gmail.com" style="color:var(--flame);">soyamchhetri5@gmail.com</a> — we read every message ourselves.</p>
+
+    <a href="index.html" class="back-link">← Back to Stride</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-bottom" style="border-top:none; padding-top:0;">
+    <span>&copy; <span id="year"></span> Stride Chef Shoes. All rights reserved.</span>
+    <a href="index.html" style="color:var(--flame);">Back to Home</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var params = new URLSearchParams(window.location.search);
+  var orderId = params.get('order_id');
+  var items = params.get('items');
+  var total = params.get('total');
+
+  if (orderId) document.getElementById('ocOrderId').textContent = orderId;
+  if (items) document.getElementById('ocItems').textContent = decodeURIComponent(items);
+  if (total) document.getElementById('ocTotal').textContent = '$' + total + ' AUD';
+
+  if (!orderId) {
+    document.getElementById('orderCard').style.display = 'none';
+  }
+</script>
+</body>
+</html>
