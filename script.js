@@ -79,7 +79,7 @@
     if (type === 'video') {
       galleryMain.innerHTML = '<video id="mainMedia" src="' + src + '" controls playsinline style="width:100%;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(20,20,15,0.12);"></video>';
     } else {
-      galleryMain.innerHTML = '<img id="mainMedia" src="' + src + '" alt="' + (alt || 'Stride product') + '" style="width:100%;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 10px 30px rgba(20,20,15,0.12);">';
+      galleryMain.innerHTML = '<img id="mainMedia" src="' + src + '" alt="' + (alt || 'Brigade product') + '" style="width:100%;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 10px 30px rgba(20,20,15,0.12);">';
     }
   }
 
@@ -109,7 +109,7 @@
         // Swap the main gallery image and matching thumb to this color
         var image = btn.getAttribute('data-image');
         if (image && galleryThumbs && galleryMain) {
-          showMedia(image, 'image', 'Stride Classic, ' + selectedColor);
+          showMedia(image, 'image', 'Brigade Classic, ' + selectedColor);
           galleryThumbs.querySelectorAll('button').forEach(function (t) {
             t.classList.toggle('active', t.getAttribute('data-src') === image);
           });

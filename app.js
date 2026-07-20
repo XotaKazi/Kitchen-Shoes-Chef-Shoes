@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       return actions.order.create({
         purchase_units: [{
-          description: 'Stride Classic Chef Shoe — Size ' + order.size + ', ' + order.color + ' x' + order.qty,
+          description: 'Brigade Classic Chef Shoe — Size ' + order.size + ', ' + order.color + ' x' + order.qty,
           amount: {
             value: total,
             currency_code: 'AUD'
