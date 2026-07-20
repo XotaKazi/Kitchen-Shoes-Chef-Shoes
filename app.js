@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var container = document.getElementById('paypal-button-container');
   if (!container || typeof paypal === 'undefined') return;
 
-  var UNIT_PRICE = 44.00; // keep this in sync with the price shown on the page
+  var UNIT_PRICE = 42.00; // keep this in sync with the price shown on the page
 
   function getOrderDetails() {
     var sizeBtn = document.querySelector('#sizeGrid .selected');
